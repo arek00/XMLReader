@@ -11,7 +11,9 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Iterator;
 
 import static org.junit.Assert.*;
@@ -40,13 +42,15 @@ public class UsersReaderTest {
 
     private static SAXParser parser;
     private static UsersReadingHandler handler;
-
+    private static InputStream dataStream;
 
     @BeforeClass
     public static void initializeTest() throws ParserConfigurationException, SAXException, IOException {
         parser = SAXParserFactory.newInstance().newSAXParser();
         handler = new UsersReadingHandler();
-        UsersReader.parseUsers(parser, handler, xmlFile);
+        dataStream = new ByteArrayInputStream(xmlFile.getBytes());
+
+        UsersReader.parseUsers(dataStream, parser, handler);
     }
 
     @Test
