@@ -1,6 +1,6 @@
 package com.arek00.xmlReader.db.EmbeddedDerbyConnectors;
 
-import com.arek00.xmlReader.db.IDBConnector;
+import com.arek00.xmlReader.db.interfaces.IDBConnector;
 
 import java.sql.Connection;
 import java.sql.Driver;

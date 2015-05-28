@@ -38,6 +38,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/DBController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/EmbeddedDerbyConnectors/EmbeddedDerbyConnectionData.java">
           <value>
             <set />
@@ -113,6 +118,31 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/interfaces/IDBConnector.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/interfaces/IDBHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/interfaces/ObjectInsertionStrategy.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/interfaces/ObjectSelectionStrategy.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/valueObjects/InsertionData.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/dbConnectors/IDBConnector.java">
           <value>
             <set />
@@ -124,6 +154,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/entities/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/entities/userEntity/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/entities/userEntity/UserToDB.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/helpers/MD5Generator.java">
           <value>
             <set />
           </value>
@@ -284,6 +329,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/resources/webapp.WEB-INF.pages/upload.jsp">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/com/arek00/xmlReader/entities/userEntity/UserTest.java">
           <value>
             <set />
           </value>

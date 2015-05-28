@@ -1,4 +1,4 @@
-package com.arek00.xmlReader.db.EmbeddedDerbyConnectors;
+package com.arek00.xmlReader.db.interfaces;
 
 import java.sql.ResultSet;
 import java.util.List;

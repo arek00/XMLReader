@@ -1,6 +1,6 @@
 package com.arek00.xmlReader.controllers;
 
-import com.arek00.xmlReader.entities.User;
+import com.arek00.xmlReader.entities.userEntity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

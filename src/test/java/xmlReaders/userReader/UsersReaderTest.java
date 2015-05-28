@@ -2,7 +2,7 @@ package xmlReaders.userReader;
 
 import com.arek00.xmlReader.usersReaders.UsersReader;
 import com.arek00.xmlReader.usersReaders.UsersReadingHandler;
-import com.arek00.xmlReader.entities.User;
+import com.arek00.xmlReader.entities.userEntity.User;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.xml.sax.SAXException;

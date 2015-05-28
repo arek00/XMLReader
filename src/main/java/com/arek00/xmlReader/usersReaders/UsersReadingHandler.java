@@ -1,6 +1,6 @@
 package com.arek00.xmlReader.usersReaders;
 
-import com.arek00.xmlReader.entities.User;
+import com.arek00.xmlReader.entities.userEntity.User;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
