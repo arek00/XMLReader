@@ -1,12 +1,12 @@
 package xmlReaders.userReader;
 
-import entities.User;
-import helpers.IteratorHelper;
+import com.arek00.xmlReader.usersReaders.UsersReader;
+import com.arek00.xmlReader.usersReaders.UsersReadingHandler;
+import com.arek00.xmlReader.entities.User;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import javax.validation.constraints.AssertTrue;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -15,6 +15,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -56,15 +57,15 @@ public class UsersReaderTest {
     @Test
     public void shouldReturnThreeUsers() {
 
-        Iterator<User> usersIterator = handler.getResult();
-        int iteratorLength = IteratorHelper.length(usersIterator);
+        List<User> usersIterator = handler.getResult();
+        int iteratorLength = usersIterator.size();
 
         assertTrue(iteratorLength == USERS_COUNT);
     }
 
     @Test
     public void shouldUsersNamesBeValid() {
-        Iterator<User> userIterator = handler.getResult();
+        Iterator<User> userIterator = handler.getResult().iterator();
         User user = null;
         String[] userNames = {"A", "B", "C"};
         int counter = 0;

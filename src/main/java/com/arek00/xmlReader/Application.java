@@ -1,4 +1,4 @@
-package web;
+package com.arek00.xmlReader;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

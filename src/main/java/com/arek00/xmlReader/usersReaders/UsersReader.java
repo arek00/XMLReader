@@ -1,13 +1,12 @@
-package xmlReaders.userReader;
+package com.arek00.xmlReader.usersReaders;
 
-import entities.User;
+import com.arek00.xmlReader.entities.User;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.SAXParser;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Iterator;
+import java.util.List;
 
 public class UsersReader {
 
@@ -15,7 +14,7 @@ public class UsersReader {
 
     }
 
-    public static Iterator<User> parseUsers(InputStream source, SAXParser parser, UsersReadingHandler handler) throws IOException, SAXException {
+    public static List<User> parseUsers(InputStream source, SAXParser parser, UsersReadingHandler handler) throws IOException, SAXException {
         parser.parse(source, handler);
 
         return handler.getResult();

@@ -1,4 +1,4 @@
-package entities;
+package com.arek00.xmlReader.entities;
 
 
 public class User {

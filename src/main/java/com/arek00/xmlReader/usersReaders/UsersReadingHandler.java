@@ -1,12 +1,11 @@
-package xmlReaders.userReader;
+package com.arek00.xmlReader.usersReaders;
 
-import entities.User;
+import com.arek00.xmlReader.entities.User;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class UsersReadingHandler extends DefaultHandler {
@@ -88,8 +87,8 @@ public class UsersReadingHandler extends DefaultHandler {
     /**
      * Get Iterator of read users.
      */
-    public Iterator<User> getResult() {
-        return this.entities.iterator();
+    public List<User> getResult() {
+        return this.entities;
     }
 
 }

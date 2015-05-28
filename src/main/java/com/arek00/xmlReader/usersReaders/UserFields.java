@@ -1,4 +1,4 @@
-package xmlReaders.userReader;
+package com.arek00.xmlReader.usersReaders;
 
 
 public enum UserFields {

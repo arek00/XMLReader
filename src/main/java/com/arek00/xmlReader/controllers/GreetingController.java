@@ -1,4 +1,4 @@
-package web.Controllers;
+package com.arek00.xmlReader.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

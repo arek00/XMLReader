@@ -1,4 +1,4 @@
-package helpers;
+package com.arek00.xmlReader.helpers;
 
 import java.util.Iterator;
 
