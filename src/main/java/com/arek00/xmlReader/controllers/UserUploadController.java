@@ -40,7 +40,6 @@ public class UserUploadController {
         - Display page with table contains uploaded data
          */
 
-
         if (!file.isEmpty()) {
             try {
                 SAXParserFactory factory = SAXParserFactory.newInstance();

@@ -38,7 +38,97 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/EmbeddedDerbyConnectors/EmbeddedDerbyConnectionData.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/EmbeddedDerbyConnectors/EmbeddedDerbyConnector.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/EmbeddedDerbyConnectors/EmbeddedDerbyHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/EmbeddedDerbyConnectors/ObjectSelectionStrategy.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/IDBConnector.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/IDBHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/ObjectInsertionStrategy.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/apacheDerbyConnectors/DerbyConnectionData.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/apacheDerbyConnectors/DerbyDBConnector.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/apacheEmbeddedDerbyConnectors/DerbyConnectionData.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/apacheEmbeddedDerbyConnectors/DerbyDBConnector.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/apacheEmbeddedDerbyConnectors/EmbeddedDerbyConnectionData.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/apacheEmbeddedDerbyConnectors/EmbeddedDerbyConnector.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/apacheEmbeddedDerbyConnectors/EmbeddedDerbyDBConnector.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/helpers/QueryValidator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/dbConnectors/IDBConnector.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/dbConnectors/IDBHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/entities/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/usersReaders/UserFields.java">
           <value>
             <set />
           </value>

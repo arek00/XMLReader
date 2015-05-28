@@ -10,7 +10,7 @@ public enum UserFields {
 
     private String tagName;
 
-    UserFields(String tag) {
+    private UserFields(String tag) {
         tagName = tag;
     }
 
