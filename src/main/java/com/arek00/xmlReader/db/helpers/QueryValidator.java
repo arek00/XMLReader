@@ -18,7 +18,7 @@ public class QueryValidator {
         int length = line.length();
 
         if (line.charAt(length - 1) == ',') {
-            return line.substring(0, length - 2);
+            return line.substring(0, length - 1);
         } else {
             return line;
         }

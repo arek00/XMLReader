@@ -14,12 +14,12 @@ public class DBController {
     private DBController() {
     }
 
-    public void setConnector(IDBConnector connector) {
-        this.connector = connector;
+    public static void setConnector(IDBConnector connector) {
+        instance.connector = connector;
     }
 
-    public void setHandler(IDBHandler handler) {
-        this.handler = handler;
+    public static void setHandler(IDBHandler handler) {
+        instance.handler = handler;
     }
 
     public IDBConnector getConnector() {
@@ -34,9 +34,8 @@ public class DBController {
      * Get instance of DBController.
      * Make sure that DBConnector and DBHandler had been set.
      *
-     * @throws java.lang.NullPointerException when DBConnector or DBHandler have null reference.
-     *
      * @return Instance of DB Connector.
+     * @throws java.lang.NullPointerException when DBConnector or DBHandler have null reference.
      */
     public static DBController getInstance() {
         if (instance.getConnector() == null) {

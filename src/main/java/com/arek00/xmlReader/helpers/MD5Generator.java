@@ -22,10 +22,11 @@ public class MD5Generator {
             try {
                 digest = MessageDigest.getInstance("md5");
             } catch (NoSuchAlgorithmException e1) {
+                MyLogger.logError("MD5 Generator ERROR:", e1.getMessage());
                 e1.printStackTrace();
             }
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            MyLogger.logError("MD5 GENERATOR ERROR:", e.getMessage());
         }
 
         digest.update(textBytes);

@@ -1,10 +1,6 @@
 package com.arek00.xmlReader.entities.userEntity;
 
 import com.arek00.xmlReader.helpers.MD5Generator;
-import org.apache.tomcat.util.security.MD5Encoder;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 /**
  * User structure in DB
@@ -12,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
  */
 public class User {
 
-    private String name, surname, login, md5;
+    private String name, surname, login, hash;
 
     public User() {
     }
@@ -21,7 +17,7 @@ public class User {
         this.name = name;
         this.surname = surname;
         this.login = login;
-        this.md5 = MD5Generator.generateMD5Hash(login);
+        this.hash = MD5Generator.generateMD5Hash(name);
     }
 
     public String getName() {
@@ -30,7 +26,7 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-        this.md5 = MD5Generator.generateMD5Hash(login);
+        this.hash = MD5Generator.generateMD5Hash(name);
     }
 
     public String getSurname() {
@@ -49,8 +45,12 @@ public class User {
         this.login = login;
     }
 
-    public String getMD5() {
-        return this.md5;
+    public String getHash() {
+        return this.hash;
+    }
+
+    public void setHash(String hash) {
+        this.hash = hash;
     }
 
 }

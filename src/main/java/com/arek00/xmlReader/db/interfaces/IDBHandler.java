@@ -16,9 +16,9 @@ public interface IDBHandler {
 
     public int delete(String tableName, String whereStatement) throws SQLException;
 
-    public int insert(String[] columns, String[] values) throws SQLException;
+    public int insert(String tableName, String[] columns, String[] values) throws SQLException;
 
-    public <T> int insert(T element, ObjectInsertionStrategy insertionStrategy) throws SQLException;
+    public <T> int insert(String tableName, T element, ObjectInsertionStrategy insertionStrategy) throws SQLException;
 
     public ResultSet selectAll(String from) throws SQLException;
 

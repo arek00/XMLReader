@@ -3,11 +3,11 @@ package com.arek00.xmlReader.entities.userEntity;
 import com.arek00.xmlReader.db.interfaces.ObjectInsertionStrategy;
 import com.arek00.xmlReader.db.interfaces.ObjectSelectionStrategy;
 import com.arek00.xmlReader.db.valueObjects.InsertionData;
+import com.arek00.xmlReader.helpers.MD5Generator;
 import org.apache.tomcat.util.security.MD5Encoder;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -32,13 +32,6 @@ public class UserToDB<T> implements ObjectInsertionStrategy, ObjectSelectionStra
         return new InsertionData(columns, values);
     }
 
-    private MessageDigest getHashAlgorithm(String algorithmName) throws NoSuchAlgorithmException {
-        MessageDigest digest = null;
-        digest = MessageDigest.getInstance(algorithmName);
-
-        return digest;
-    }
-
     private String[] generateValuesArray(User user) {
         byte digestArray[];
 
@@ -46,8 +39,7 @@ public class UserToDB<T> implements ObjectInsertionStrategy, ObjectSelectionStra
         name = ((User) user).getName();
         surname = ((User) user).getSurname();
         login = ((User) user).getLogin();
-        digestArray = name.getBytes();
-        md5 = MD5Encoder.encode(name.getBytes());
+        md5 = MD5Generator.generateMD5Hash(name);
 
         return new String[]{name, surname, login, md5};
     }

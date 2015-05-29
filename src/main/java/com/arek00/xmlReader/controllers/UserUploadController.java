@@ -1,6 +1,11 @@
 package com.arek00.xmlReader.controllers;
 
+import com.arek00.xmlReader.db.DBController;
+import com.arek00.xmlReader.db.interfaces.IDBHandler;
+import com.arek00.xmlReader.db.interfaces.ObjectInsertionStrategy;
 import com.arek00.xmlReader.entities.userEntity.User;
+import com.arek00.xmlReader.entities.userEntity.UserToDB;
+import com.arek00.xmlReader.helpers.MyLogger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +18,11 @@ import org.xml.sax.SAXException;
 import com.arek00.xmlReader.usersReaders.UsersReader;
 import com.arek00.xmlReader.usersReaders.UsersReadingHandler;
 
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.*;
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -48,23 +55,27 @@ public class UserUploadController {
 
                 parseUsersFromFile(file, parser, handler);
 
-
-
                 byte[] bytes = file.getBytes();
-                //
-//                BufferedOutputStream stream =
-//                        new BufferedOutputStream(new FileOutputStream(new File(name)));
-//                stream.write(bytes);
-//                stream.close();
 
-                model.addAttribute("users",handler.getResult());
+                model.addAttribute("users", handler.getResult());
+                insertUserToDB(handler.getResult());
 
                 return "upload";
-            } catch (Exception e) {
-                //return "You failed to upload " + name + " => " + e.getMessage();
+            } catch (ParserConfigurationException e) {
+
+                MyLogger.logError("Parser Configuration Error:", e.getMessage());
+                e.printStackTrace();
+            } catch (SAXException e) {
+                MyLogger.logError("SaxException", e.getMessage());
+
+                e.printStackTrace();
+            } catch (IOException e) {
+                MyLogger.logError("Input/Output Exception", e.getMessage());
+
+                e.printStackTrace();
             }
         } else {
-            //return "You failed to upload " + name + " because the file was empty.";
+            MyLogger.logError("UPLOAD FILE ERROR:", "You failed to upload " + name + " because the file was empty.");
         }
 
         return null;
@@ -107,6 +118,20 @@ public class UserUploadController {
         htmlCode += tableMarkerClose;
 
         return htmlCode;
+    }
+
+    private void insertUserToDB(List<User> usersList) {
+        DBController controller = DBController.getInstance();
+        IDBHandler handler = controller.getHandler();
+        ObjectInsertionStrategy strategy = new UserToDB<User>();
+
+        for (User user : usersList) {
+            try {
+                handler.insert("Users",user, strategy);
+            } catch (SQLException e) {
+                MyLogger.logError("ERROR DURING INSERT USER", e.getMessage());
+            }
+        }
     }
 
 }

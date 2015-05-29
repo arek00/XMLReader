@@ -33,12 +33,37 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/Logger.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/MyLogger.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/controllers/ShowUsersController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/controllers/UserUploadController.java">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/DBBuilder.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/DBController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/db/DBStarter.java">
           <value>
             <set />
           </value>
@@ -169,6 +194,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/helpers/MD5Generator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/arek00/xmlReader/helpers/MyLogger.java">
           <value>
             <set />
           </value>
@@ -313,6 +343,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/templates/showUsers.html">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/resources/templates/upload.html">
           <value>
             <set />
@@ -329,6 +364,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/resources/webapp.WEB-INF.pages/upload.jsp">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/com/arek00/xmlReader/db/helpers/QueryValidatorTest.java">
           <value>
             <set />
           </value>

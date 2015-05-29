@@ -1,5 +1,6 @@
 package com.arek00.xmlReader.db.EmbeddedDerbyConnectors;
 
+import com.arek00.xmlReader.helpers.MyLogger;
 import com.arek00.xmlReader.db.interfaces.IDBHandler;
 import com.arek00.xmlReader.db.interfaces.ObjectInsertionStrategy;
 import com.arek00.xmlReader.db.helpers.QueryValidator;
@@ -40,6 +41,9 @@ public class EmbeddedDerbyHandler implements IDBHandler {
         validateQueriesArray(fields);
 
         String query = generateCreateQuery(name, fields);
+
+        MyLogger.logMessage("CREATE QUERY", query);
+
         return statement.execute(query);
     }
 
@@ -48,7 +52,9 @@ public class EmbeddedDerbyHandler implements IDBHandler {
     public boolean dropTable(String tableName) throws SQLException {
         QueryValidator.findSemicolons(tableName);
 
-        String query = String.format("DROP TABLE %s;", tableName);
+        String query = String.format("DROP TABLE %s", tableName);
+
+        MyLogger.logMessage("DROP QUERY", query);
 
         return statement.execute(query);
     }
@@ -59,6 +65,8 @@ public class EmbeddedDerbyHandler implements IDBHandler {
 
         String query = String.format("DELETE FROM %s", tableName);
 
+        MyLogger.logMessage("DELETE ALL QUERY", query);
+
         return statement.executeUpdate(query);
     }
 
@@ -68,21 +76,26 @@ public class EmbeddedDerbyHandler implements IDBHandler {
 
         String query = String.format("DELETE FROM %s WHERE %s");
 
+        MyLogger.logMessage("DELETE QUERY", query);
+
         return statement.executeUpdate(query);
     }
 
     @Override
-    public int insert(String[] columns, String[] values) throws SQLException {
+    public int insert(String tableName, String[] columns, String[] values) throws SQLException {
         validateQueriesArray(columns);
         validateQueriesArray(values);
 
-        String query = generateInsertQuery(columns, values);
+        String query = generateInsertQuery(tableName, columns, values);
+
+        MyLogger.logMessage("INSERT QUERY", query);
+
 
         return statement.executeUpdate(query);
     }
 
     @Override
-    public <T> int insert(T element, ObjectInsertionStrategy strategy) throws SQLException {
+    public <T> int insert(String tableName, T element, ObjectInsertionStrategy strategy) throws SQLException {
         String[] columns = null;
         String[] values = null;
 
@@ -93,7 +106,7 @@ public class EmbeddedDerbyHandler implements IDBHandler {
         validateQueriesArray(columns);
         validateQueriesArray(values);
 
-        return insert(columns, values);
+        return insert(tableName, columns, values);
     }
 
     @Override
@@ -101,6 +114,8 @@ public class EmbeddedDerbyHandler implements IDBHandler {
         QueryValidator.findSemicolons(from);
 
         String query = String.format("SELECT * FROM %s", from);
+
+        MyLogger.logMessage("SELECT ALL QUERY", query);
 
         return statement.executeQuery(query);
     }
@@ -112,6 +127,8 @@ public class EmbeddedDerbyHandler implements IDBHandler {
 
         String query = String.format("SELECT * FROM %s WHERE %s", from, whereStatement);
 
+        MyLogger.logMessage("SELECT QUERY", query);
+
         return statement.executeQuery(query);
     }
 
@@ -119,7 +136,7 @@ public class EmbeddedDerbyHandler implements IDBHandler {
     public <T> List<T> selectAllObjects(String from, ObjectSelectionStrategy strategy) throws SQLException {
         QueryValidator.findSemicolons(from);
 
-        String query = String.format("SELECT * FROM %s;", from);
+        String query = String.format("SELECT * FROM %s", from);
         ResultSet selectionResult = statement.executeQuery(query);
 
         return strategy.generateSelectionList(selectionResult);
@@ -130,7 +147,7 @@ public class EmbeddedDerbyHandler implements IDBHandler {
         QueryValidator.findSemicolons(from);
         QueryValidator.findSemicolons(whereStatement);
 
-        String query = String.format("SELECT * FROM %s WHERE %s;", from, whereStatement);
+        String query = String.format("SELECT * FROM %s WHERE %s", from, whereStatement);
         ResultSet selectionResult = statement.executeQuery(query);
 
         return strategy.generateSelectionList(selectionResult);
@@ -142,13 +159,10 @@ public class EmbeddedDerbyHandler implements IDBHandler {
     }
 
     private String generateCreateQuery(String name, String[] fields) {
-        String query = "CREATE TABLE %s (\n";
+        String query = String.format("CREATE TABLE %s \n", name);
+        query += arrayToQueryArguments(fields, false);
 
-        for (String line : fields) {
-            query += QueryValidator.removeCommasAtLinesEnd(line) + ",";
-        }
-
-        query += ");";
+        MyLogger.logMessage("CREATE TABLE QUERY", query);
 
         return query;
     }
@@ -159,12 +173,13 @@ public class EmbeddedDerbyHandler implements IDBHandler {
         }
     }
 
-    private String generateInsertQuery(String[] columns, String[] values) {
-        String query = String.format("INSERT INTO");
-        query += arrayToQueryArguments(columns);
+    private String generateInsertQuery(String tableName, String[] columns, String[] values) {
+        String query = String.format("INSERT INTO %s",tableName);
+        query += arrayToQueryArguments(columns, false);
         query += " VALUES";
-        query += arrayToQueryArguments(values);
-        query += ";";
+        query += arrayToQueryArguments(values, true);
+
+        MyLogger.logMessage("INSERT TABLE QUERY:", query);
 
         return query;
     }
@@ -175,11 +190,14 @@ public class EmbeddedDerbyHandler implements IDBHandler {
      * @param arguments
      * @return
      */
-    private String arrayToQueryArguments(String[] arguments) {
+    private String arrayToQueryArguments(String[] arguments, boolean apostrophe) {
         String query = "(";
 
         for (int iterator = 0; iterator < arguments.length; iterator++) {
-            query += String.format("'%s'", arguments[iterator]);
+            arguments[iterator] = QueryValidator.removeCommasAtLinesEnd(arguments[iterator]);
+            query += (apostrophe) ? "'" : " ";
+            query += String.format("%s", arguments[iterator]);
+            query += (apostrophe) ? "'" : " ";
             query += (iterator < arguments.length - 1) ? "," : ")";
         }
 

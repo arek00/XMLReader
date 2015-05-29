@@ -21,9 +21,9 @@ public class UserTest {
         assertFalse(user.getName() == null);
         assertFalse(user.getSurname() == null);
         assertFalse(user.getLogin() == null);
-        assertFalse(user.getMD5() == null);
+        assertFalse(user.getHash() == null);
 
-        System.out.println(user.getMD5());
+        System.out.println(user.getHash());
     }
 
 
