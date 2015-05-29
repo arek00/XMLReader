@@ -1,23 +1,20 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css"/>
     <meta charset="UTF-8"/>
-    <title></title>
+    <title>Show Users</title>
+    <script src="sorttable.js" type="text/javascript"></script>
 </head>
 <body>
-<table>
-    <thead>
+<table class="sortable">
     <tr>
         <th>Name</th>
         <th>Surname(Name)</th>
         <th>Login</th>
         <th>MD5(Name)</th>
         <th>Session ID</th>
-
     </tr>
-
-    </thead>
     <tr th:each="o : ${users}">
         <td th:text="${o.name}">Name</td>
         <td th:text="${o.surname}">Surname</td>
