@@ -1,0 +1,21 @@
+body {
+    background-color: silver;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+td{
+    background-color: white;
+}
+
+td:hover{
+    background-color: blue;
+    color: white;
+}
+
+th {
+    background-color: green;
+    color: white;
+}

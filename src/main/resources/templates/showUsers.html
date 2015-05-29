@@ -1,16 +1,29 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="UTF-8"/>
     <title></title>
 </head>
 <body>
 <table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Surname(Name)</th>
+        <th>Login</th>
+        <th>MD5(Name)</th>
+        <th>Session ID</th>
+
+    </tr>
+
+    </thead>
     <tr th:each="o : ${users}">
         <td th:text="${o.name}">Name</td>
-        <td th:text="${o.surname}+'_'+${o.hash}">Surname</td>
+        <td th:text="${o.surname}">Surname</td>
         <td th:text="${o.login}">Login</td>
         <td th:text="${o.hash}">Hash Key</td>
+        <td th:text="${o.sessionID}">Session ID</td>
     </tr>
 </table>
 </body>

@@ -1,10 +1,11 @@
 <html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
 <body>
-<form method="POST" enctype="multipart/form-data"
-      action="/upload">
-    File to upload: <input type="file" name="file"><br/> Name: <input
-        type="text" name="name"><br/> <br/> <input type="submit"
-                                                   value="Upload"> Press here to upload the file!
+<form method="POST" enctype="multipart/form-data" action="/upload">
+    Choose file to upload: <input type="file" name="file"><br/>
+    Type your ID: <input type="text" name="name" maxlength="20"><br/> <br/> <input type="submit" value="Upload">
 </form>
 </body>
 </html>

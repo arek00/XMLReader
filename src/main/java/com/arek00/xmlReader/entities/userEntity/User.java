@@ -8,7 +8,11 @@ import com.arek00.xmlReader.helpers.MD5Generator;
  */
 public class User {
 
-    private String name, surname, login, hash;
+    private String name;
+    private String surname;
+    private String login;
+    private String hash;
+    private String sessionID = "0";
 
     public User() {
     }
@@ -51,6 +55,14 @@ public class User {
 
     public void setHash(String hash) {
         this.hash = hash;
+    }
+
+    public String getSessionID() {
+        return sessionID;
+    }
+
+    public void setSessionID(String sessionID) {
+        this.sessionID = sessionID;
     }
 
 }

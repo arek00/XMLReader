@@ -55,8 +55,9 @@ public class DBBuilder {
         String surnameField = "SURNAME VARCHAR(30)";
         String loginField = "LOGIN VARCHAR(30)";
         String md5Field = "MD5 VARCHAR(32)";
+        String sessionIDField = "SESSION_ID VARCHAR(20)";
 
-        String[] columns = {idField, nameField, surnameField, loginField, md5Field};
+        String[] columns = {idField, nameField, surnameField, loginField, md5Field, sessionIDField};
 
         handler.createTable("Users", columns);
     }
